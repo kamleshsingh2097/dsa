@@ -695,3 +695,141 @@
 //
 //
 //
+
+// // //! 11 Combination sum - 3 
+
+
+// /*We can do a recursive solution where we will add an element in the combination greater than we 
+// add in the last operation in this way will not create a similar combination again also we won’t
+//  use the same element twice and in each will add an element if the total sum is <= n if the number
+//  of elements in the combination is equal to k and sum is equal to n we will add to ‘ans’ matrix.
+//   We will return this matrix after the end of the recursion.*/
+
+// #include <iostream>
+// using namespace std;
+
+// // Helper function to create combination.
+// void create(int i, int k, int n, vector < int > & temp, vector < vector < int > > & ans, int last) {
+
+//     // If we have reached the last element then we can not add any more elements so check.
+//     // The sum of elements in temp is equal to ‘n’ or not.
+//     // If it is then add it to the answer.
+//     if (i == k) {
+//         if (n == 0) {
+//             ans.push_back(temp);
+//         }
+//     }
+
+//     // We can use every element once only so we will use the element greater than the previous elements.
+//     // So for 'curr' in range [last+1, 9]
+//     for (int curr = last + 1; curr < 10; curr++) {
+
+//         // If 'curr' is greater than ‘n’ then we can not add it to 'temp'.
+//         if (n - curr < 0) {
+//             break;
+//         }
+
+//         // Add the current element to 'temp' and call the create function with n-curr.
+//         temp.push_back(curr);
+//         create(i + 1, k, n - curr, temp, ans, curr);
+
+//         // Backtrack.
+//         temp.pop_back();
+//     }
+// }
+
+// vector < vector < int > > combinationSum(int k, int n) {
+
+//     // Declare a 'ans' Matrix to store answers and one temporary array 'temp'.
+//     vector < vector < int > > ans;
+//     vector < int > temp;
+
+//     // Call the create function with initial i= 0 as there is no element in temp.
+//     // 'n' is initially 'n' as there is no element in temp.
+//     // 'ans' is initially empty.
+//     // The last element initially we take as 0 as we can take numbers between [1, 9].
+//     // And in each case, We check from 'last'+1.
+//     create(0, k, n, temp, ans, 0);
+
+//     // Return 'ans'.
+//     return ans;
+// }
+
+// int main(){
+//     vector<vector<int> > ans2= combinationSum(3,7);
+//     for(auto it:ans2){
+//         for(auto it2:it){
+//             cout<<it2<<" ";
+//         }
+//         cout<<endl;
+//     }
+//     return 0;
+// }
+//
+//
+//
+//
+//
+
+// //! 12 Letter combinations of a phone number
+
+// #include <iostream>
+// #include<vector>
+// using namespace std;
+
+// // Function to recursively generate letter combinations.
+// void generateCombinations(string& digits, int index, string& combination, vector<string>& mapping, vector<string>& result) {
+//     // Base case: If we have processed all digits, add the current combination to the result.
+//     if (index == digits.length()) {
+//         result.push_back(combination);
+//         return;
+//     }
+
+//     // Get the letters corresponding to the current digit.
+//     string letters = mapping[digits[index] - '0'];
+
+//     // Iterate over the letters and generate combinations.
+//     for (char letter : letters) {
+//         combination += letter;
+//         generateCombinations(digits, index + 1, combination , mapping, result);
+//         combination.pop_back();
+//     }
+// }
+
+// // Function to generate letter combinations from digits.
+// vector<string> letterCombinations(string digits) {
+//     // Mapping of digits to letters.
+//   vector<string> mapping ;
+//     mapping.push_back("0");
+//     mapping.push_back("1");
+//     mapping.push_back("abc");
+//     mapping.push_back("def");
+//     mapping.push_back("ghi");
+//     mapping.push_back("jkl");
+//     mapping.push_back("mno");
+//     mapping.push_back("pqrs");
+//     mapping.push_back("tuv");
+//     mapping.push_back("wxyz");
+//     // Result vector to store the generated combinations.
+//     vector<string> result;
+//     string combination;
+
+//     // Call the recursive function to generate combinations.
+//     generateCombinations(digits, 0, combination, mapping, result);
+
+//     // Return the result vector containing the generated combinations.
+//     return result;
+// }
+
+// int main(){
+//     vector<string> ans=letterCombinations("23");
+//     for(auto it:ans){
+//         cout<<it<<endl;
+//     }
+//     return 0;
+// }
+//
+//
+//
+//
+//
