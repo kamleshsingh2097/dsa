@@ -347,7 +347,7 @@
 // #include <iostream>
 // using namespace std;
 
-// bool checkPrime(int n){
+// bool checkPrime(int n){ //*no need of this func
 //     int cnt=0;
 //     for(int i=1;i*i<=n;i++){
 //         if(n%i==0){
@@ -393,3 +393,8 @@
 //     }
 //     return 0;
 // }
+//
+//
+//
+//
+//

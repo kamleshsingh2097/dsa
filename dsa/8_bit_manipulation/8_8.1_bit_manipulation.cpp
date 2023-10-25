@@ -41,8 +41,6 @@
 2’s which can satisfy the equation 
 ‘dividend = divisor * maximum 2’s power + remainder’.
 
- 
-
 If found we set ‘quotient’ to ‘quotient = quotient +  maximum
 2’s power’.*/
 
